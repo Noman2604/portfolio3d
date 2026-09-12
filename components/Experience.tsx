@@ -2,8 +2,8 @@
 
 import { Suspense, useEffect, useCallback } from "react";
 import { Canvas } from "@react-three/fiber";
-import { PalakScene } from "@/components/scene/PalakScene";
-import { PalakNavbar } from "@/components/ui/PalakNavbar";
+import { Scene } from "@/components/scene/Scene";
+import { Navbar } from "@/components/ui/Navbar";
 import { DotNavigation } from "@/components/ui/DotNavigation";
 import { Sections } from "@/components/ui/Sections";
 import { Terminal } from "@/components/ui/Terminal";
@@ -26,13 +26,25 @@ export function Experience() {
     const onScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const totalHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
           const currentY = window.scrollY;
-          const progress = totalHeight > 0 ? Math.min(Math.max(currentY / totalHeight, 0), 1) : 0;
+          const progress =
+            totalHeight > 0
+              ? Math.min(Math.max(currentY / totalHeight, 0), 1)
+              : 0;
           setScrollProgress(progress);
 
           // Determine active section based on scroll offsets
-          const sections = ["hero", "about", "stack", "work", "projects", "experience", "contact"];
+          const sections = [
+            "hero",
+            "about",
+            "stack",
+            "work",
+            "projects",
+            "experience",
+            "contact",
+          ];
           const scrollPos = currentY + window.innerHeight * 0.35;
 
           for (let i = sections.length - 1; i >= 0; i--) {
@@ -81,13 +93,13 @@ export function Experience() {
           }}
         >
           <Suspense fallback={null}>
-            <PalakScene />
+            <Scene />
           </Suspense>
         </Canvas>
       </div>
 
       {/* Floating Header Navigation */}
-      <PalakNavbar onScrollTo={handleScrollTo} />
+      <Navbar onScrollTo={handleScrollTo} />
 
       {/* Right-hand Rail Dot Navigation */}
       <DotNavigation onScrollTo={handleScrollTo} />

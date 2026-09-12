@@ -159,7 +159,7 @@ Opening email client...`,
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#020617]/85 p-4 backdrop-blur-md">
-      <div className="relative flex h-[580px] w-full max-w-2xl flex-col rounded-2xl border border-[#38bdf8]/40 bg-[#090d16] p-5 shadow-[0_0_50px_rgba(56,189,248,0.2)] font-mono text-xs text-[#38bdf8]">
+      <div className="relative flex h-145 max-w-2xl flex-col rounded-2xl border border-[#38bdf8]/40 bg-[#090d16] p-5 shadow-[0_0_50px_rgba(56,189,248,0.2)] font-mono text-xs text-[#38bdf8]">
         {/* Terminal Header Bar */}
         <div className="flex items-center justify-between border-b border-[#1e293b] pb-3 text-[11px] text-[#64748b]">
           <div className="flex items-center gap-2">

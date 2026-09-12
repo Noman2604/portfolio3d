@@ -11,7 +11,7 @@ const PALE_GOLD = "#e9edc9";
 const CYAN = "#38bdf8";
 const PURPLE = "#c084fc";
 
-export function PalakScene() {
+export function Scene() {
   const { scrollProgress, mousePos } = useScrollStore();
 
   // Root scene group for mouse parallax
@@ -44,12 +44,12 @@ export function PalakScene() {
       rootRef.current.rotation.y = THREE.MathUtils.lerp(
         rootRef.current.rotation.y,
         mousePos.x * 0.15,
-        delta * 2
+        delta * 2,
       );
       rootRef.current.rotation.x = THREE.MathUtils.lerp(
         rootRef.current.rotation.x,
         -mousePos.y * 0.1,
-        delta * 2
+        delta * 2,
       );
     }
 
@@ -64,7 +64,11 @@ export function PalakScene() {
     if (heroGroupRef.current) {
       const heroVisibility = Math.max(0, 1 - scrollProgress * 5);
       heroGroupRef.current.position.y = (1 - heroVisibility) * 4;
-      heroGroupRef.current.position.x = THREE.MathUtils.lerp(0.8, -2, scrollProgress);
+      heroGroupRef.current.position.x = THREE.MathUtils.lerp(
+        0.8,
+        -2,
+        scrollProgress,
+      );
       heroGroupRef.current.scale.setScalar(heroVisibility);
 
       if (heroSphereRef.current) {
@@ -80,15 +84,27 @@ export function PalakScene() {
       const slabFactor = Math.max(0, 1 - Math.abs(scrollProgress - 0.25) * 5);
       slabGroupRef.current.scale.setScalar(slabFactor);
       slabGroupRef.current.rotation.y = t * 0.3 + scrollProgress * 2;
-      slabGroupRef.current.position.x = THREE.MathUtils.lerp(-2.2, -1.8, slabFactor);
-      slabGroupRef.current.position.y = THREE.MathUtils.lerp(-0.5, 0, slabFactor);
+      slabGroupRef.current.position.x = THREE.MathUtils.lerp(
+        -2.2,
+        -1.8,
+        slabFactor,
+      );
+      slabGroupRef.current.position.y = THREE.MathUtils.lerp(
+        -0.5,
+        0,
+        slabFactor,
+      );
     }
 
     // 3. Stack Orbital Rings Transitions (visible around 0.35 - 0.65)
     if (orbitGroupRef.current) {
       const orbitFactor = Math.max(0, 1 - Math.abs(scrollProgress - 0.48) * 5);
       orbitGroupRef.current.scale.setScalar(orbitFactor);
-      orbitGroupRef.current.position.x = THREE.MathUtils.lerp(1.2, 1.9, orbitFactor);
+      orbitGroupRef.current.position.x = THREE.MathUtils.lerp(
+        1.2,
+        1.9,
+        orbitFactor,
+      );
       orbitGroupRef.current.position.y = 0;
 
       if (orbitRing1Ref.current) orbitRing1Ref.current.rotation.z = t * 0.5;
@@ -100,7 +116,11 @@ export function PalakScene() {
     if (projectGroupRef.current) {
       const projFactor = Math.max(0, 1 - Math.abs(scrollProgress - 0.8) * 3);
       projectGroupRef.current.scale.setScalar(projFactor);
-      projectGroupRef.current.position.x = THREE.MathUtils.lerp(-2.4, -1.9, projFactor);
+      projectGroupRef.current.position.x = THREE.MathUtils.lerp(
+        -2.4,
+        -1.9,
+        projFactor,
+      );
 
       if (torusKnotRef.current) {
         torusKnotRef.current.rotation.x = t * 0.4;
@@ -143,8 +163,18 @@ export function PalakScene() {
       {/* Lighting Rig */}
       <ambientLight intensity={0.5} color="#334155" />
       <directionalLight position={[6, 8, 6]} intensity={1.8} color="#fef08a" />
-      <directionalLight position={[-8, -6, -4]} intensity={0.8} color="#38bdf8" />
-      <pointLight position={[0, 0, 2]} intensity={15} color="#e0e7ff" distance={8} decay={2} />
+      <directionalLight
+        position={[-8, -6, -4]}
+        intensity={0.8}
+        color="#38bdf8"
+      />
+      <pointLight
+        position={[0, 0, 2]}
+        intensity={15}
+        color="#e0e7ff"
+        distance={8}
+        decay={2}
+      />
 
       {/* =============================================================== */}
       {/* 1. HERO OBJECT: Faceted Wireframe Sphere + Rings + Floating Cubes */}
@@ -163,7 +193,12 @@ export function PalakScene() {
         {/* Wireframe Overlay */}
         <mesh>
           <icosahedronGeometry args={[1.56, 1]} />
-          <meshBasicMaterial color={PALE_GOLD} wireframe transparent opacity={0.35} />
+          <meshBasicMaterial
+            color={PALE_GOLD}
+            wireframe
+            transparent
+            opacity={0.35}
+          />
         </mesh>
 
         {/* Orbiting Elliptical Rings */}
@@ -184,7 +219,12 @@ export function PalakScene() {
           [-1.2, 1.8, -0.8],
           [1.8, -1.6, -0.3],
         ].map((pos, i) => (
-          <Float key={i} speed={2 + i * 0.5} rotationIntensity={1} floatIntensity={0.5}>
+          <Float
+            key={i}
+            speed={2 + i * 0.5}
+            rotationIntensity={1}
+            floatIntensity={0.5}
+          >
             <mesh position={pos as [number, number, number]}>
               <boxGeometry args={[0.12, 0.12, 0.12]} />
               <meshStandardMaterial color={PALE_GOLD} roughness={0.3} />
@@ -200,7 +240,11 @@ export function PalakScene() {
         {/* Slab 1: Top (Frontend Tier) */}
         <mesh position={[0, 0.9, 0]} rotation={[-0.15, 0.3, 0]}>
           <boxGeometry args={[2.2, 0.08, 1.4]} />
-          <meshStandardMaterial color="#1e293b" metalness={0.7} roughness={0.3} />
+          <meshStandardMaterial
+            color="#1e293b"
+            metalness={0.7}
+            roughness={0.3}
+          />
         </mesh>
         <mesh position={[0, 0.9, 0]} rotation={[-0.15, 0.3, 0]}>
           <boxGeometry args={[2.22, 0.082, 1.42]} />
@@ -212,26 +256,49 @@ export function PalakScene() {
           <sphereGeometry args={[0.3, 16, 16]} />
           <meshBasicMaterial color="#ffffff" />
         </mesh>
-        <pointLight position={[0, 0, 0]} intensity={12} color={CYAN} distance={5} />
+        <pointLight
+          position={[0, 0, 0]}
+          intensity={12}
+          color={CYAN}
+          distance={5}
+        />
 
         {/* Slab 2: Middle (API / Microservices Tier - Autowhat.ai) */}
         <mesh position={[0, 0, 0]} rotation={[-0.08, -0.2, 0]}>
           <boxGeometry args={[2.6, 0.08, 1.6]} />
-          <meshStandardMaterial color="#0f172a" metalness={0.8} roughness={0.2} />
+          <meshStandardMaterial
+            color="#0f172a"
+            metalness={0.8}
+            roughness={0.2}
+          />
         </mesh>
         <mesh position={[0, 0, 0]} rotation={[-0.08, -0.2, 0]}>
           <boxGeometry args={[2.62, 0.082, 1.62]} />
-          <meshBasicMaterial color="#ffffff" wireframe transparent opacity={0.7} />
+          <meshBasicMaterial
+            color="#ffffff"
+            wireframe
+            transparent
+            opacity={0.7}
+          />
         </mesh>
 
         {/* Slab 3: Bottom (Database & Infrastructure Tier) */}
         <mesh position={[0, -0.9, 0]} rotation={[0.1, 0.15, 0]}>
           <boxGeometry args={[2.4, 0.08, 1.5]} />
-          <meshStandardMaterial color="#1e293b" metalness={0.7} roughness={0.3} />
+          <meshStandardMaterial
+            color="#1e293b"
+            metalness={0.7}
+            roughness={0.3}
+          />
         </mesh>
         <mesh position={[0, -0.9, 0]} rotation={[0.1, 0.15, 0]}>
           <boxGeometry args={[2.42, 0.082, 1.52]} />
-          <meshBasicMaterial color={WARM_GOLD} wireframe transparent opacity={0.5} />
+          <meshBasicMaterial
+            color={WARM_GOLD}
+            wireframe
+            transparent
+            opacity={0.5}
+          />
         </mesh>
 
         {/* Connecting Vertical Laser Rays */}
@@ -245,7 +312,12 @@ export function PalakScene() {
         {/* Floating wireframe torus knot on side */}
         <mesh position={[1.8, 0.3, 0]} rotation={[0.4, 0.5, 0]}>
           <torusKnotGeometry args={[0.38, 0.1, 64, 16]} />
-          <meshBasicMaterial color="#94a3b8" wireframe transparent opacity={0.4} />
+          <meshBasicMaterial
+            color="#94a3b8"
+            wireframe
+            transparent
+            opacity={0.4}
+          />
         </mesh>
       </group>
 
@@ -323,7 +395,12 @@ export function PalakScene() {
         ].map((p, i) => (
           <mesh key={i} position={p as [number, number, number]}>
             <octahedronGeometry args={[0.22, 0]} />
-            <meshBasicMaterial color={i === 0 ? CYAN : PALE_GOLD} wireframe transparent opacity={0.8} />
+            <meshBasicMaterial
+              color={i === 0 ? CYAN : PALE_GOLD}
+              wireframe
+              transparent
+              opacity={0.8}
+            />
           </mesh>
         ))}
       </group>

@@ -22,8 +22,6 @@ import {
 export interface SectionsProps {
   onScrollTo: (id: string) => void;
 }
-
-export type PalakSectionsProps = SectionsProps;
 export type SectionProps = SectionsProps;
 
 export function Sections({ onScrollTo }: SectionsProps) {
@@ -40,7 +38,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
       >
         <div className="max-w-4xl space-y-6">
           {/* Section Monospace Sub-header */}
-          <div className="inline-flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-amber-300">
+          <div className="inline-flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-white/4 border border-white/10 text-xs font-mono text-amber-300">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
             <span>01 // ARCHITECTURE & SYSTEMS</span>
           </div>
@@ -63,7 +61,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
           </p>
 
           {/* Currently Working Live Status Alert Card */}
-          <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-950/40 via-emerald-900/20 to-transparent border border-emerald-500/30 backdrop-blur-md max-w-2xl">
+          <div className="p-4 rounded-xl bg-linear-to-r from-emerald-950/40 via-emerald-900/20 to-transparent border border-emerald-500/30 backdrop-blur-md max-w-2xl">
             <div className="flex items-center gap-2.5 text-xs font-mono text-emerald-300 font-semibold mb-1">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -95,7 +93,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
 
             <button
               onClick={() => setTerminalOpen(true)}
-              className="px-5 py-3 rounded-full bg-white/[0.05] border border-white/15 text-zinc-200 font-mono text-xs hover:border-amber-400/50 hover:bg-amber-500/10 hover:text-amber-300 transition-all flex items-center gap-2"
+              className="px-5 py-3 rounded-full bg-white/5 border border-white/15 text-zinc-200 font-mono text-xs hover:border-amber-400/50 hover:bg-amber-500/10 hover:text-amber-300 transition-all flex items-center gap-2"
             >
               <Terminal className="w-4 h-4 text-amber-400" />
               <span>Launch Terminal CLI</span>
@@ -168,7 +166,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
                   processing.
                 </p>
 
-                <div className="space-y-2 pt-4 border-t border-white/[0.08]">
+                <div className="space-y-2 pt-4 border-t border-white/8">
                   <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider">
                     Core Specializations:
                   </div>
@@ -194,7 +192,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
               </div>
 
               {/* Past Professional Milestone */}
-              <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08] backdrop-blur-md">
+              <div className="p-6 rounded-2xl bg-white/2 border border-white/8 backdrop-blur-md">
                 <div className="flex items-center justify-between text-xs font-mono text-zinc-400 mb-2">
                   <span>PREVIOUS INTERNSHIP</span>
                   <span>May 2026 – Jun 2026</span>
@@ -212,7 +210,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
 
             {/* Right Column: Bio Narrative & Stats */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="p-6 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl space-y-4">
+              <div className="p-6 sm:p-8 rounded-2xl bg-white/3 border border-white/8 backdrop-blur-xl space-y-4">
                 <h3 className="text-lg font-semibold text-amber-300 font-mono">
                   // Engineering Philosophy
                 </h3>
@@ -231,7 +229,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
                 {about.stats.map((stat, i) => (
                   <div
                     key={i}
-                    className="p-5 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-amber-400/30 transition-colors"
+                    className="p-5 rounded-2xl bg-white/3 border border-white/8 hover:border-amber-400/30 transition-colors"
                   >
                     <div className="font-serif italic text-3xl sm:text-4xl text-amber-200">
                       {stat.value}
@@ -270,7 +268,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Layer 1: Client Layer */}
-            <div className="p-6 sm:p-8 rounded-2xl bg-[#090b11]/80 border border-white/[0.08] backdrop-blur-xl relative group hover:border-amber-400/40 transition-all duration-300">
+            <div className="p-6 sm:p-8 rounded-2xl bg-[#090b11]/80 border border-white/8 backdrop-blur-xl relative group hover:border-amber-400/40 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-amber-400">
                   <Code2 className="w-5 h-5" />
@@ -300,7 +298,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
                 ].map((skill) => (
                   <span
                     key={skill}
-                    className="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] border border-white/10 text-zinc-200"
+                    className="px-2.5 py-1 rounded-md text-xs font-mono bg-white/4 border border-white/10 text-zinc-200"
                   >
                     {skill}
                   </span>
@@ -348,7 +346,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
             </div>
 
             {/* Layer 3: Database & Models */}
-            <div className="p-6 sm:p-8 rounded-2xl bg-[#090b11]/80 border border-white/[0.08] backdrop-blur-xl relative group hover:border-sky-400/40 transition-all duration-300">
+            <div className="p-6 sm:p-8 rounded-2xl bg-[#090b11]/80 border border-white/8 backdrop-blur-xl relative group hover:border-sky-400/40 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-sky-400/10 border border-sky-400/20 flex items-center justify-center text-sky-400">
                   <Database className="w-5 h-5" />
@@ -375,7 +373,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
                 ].map((skill) => (
                   <span
                     key={skill}
-                    className="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] border border-white/10 text-zinc-200"
+                    className="px-2.5 py-1 rounded-md text-xs font-mono bg-white/4 border border-white/10 text-zinc-200"
                   >
                     {skill}
                   </span>
@@ -384,7 +382,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
             </div>
 
             {/* Layer 4: Tooling & AI */}
-            <div className="p-6 sm:p-8 rounded-2xl bg-[#090b11]/80 border border-white/[0.08] backdrop-blur-xl relative group hover:border-purple-400/40 transition-all duration-300">
+            <div className="p-6 sm:p-8 rounded-2xl bg-[#090b11]/80 border border-white/8 backdrop-blur-xl relative group hover:border-purple-400/40 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-purple-400/10 border border-purple-400/20 flex items-center justify-center text-purple-400">
                   <Layers className="w-5 h-5" />
@@ -412,7 +410,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
                 ].map((skill) => (
                   <span
                     key={skill}
-                    className="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] border border-white/10 text-zinc-200"
+                    className="px-2.5 py-1 rounded-md text-xs font-mono bg-white/4 border border-white/10 text-zinc-200"
                   >
                     {skill}
                   </span>
@@ -474,7 +472,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-white/[0.08]">
+              <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-white/8">
                 <a
                   href={projects.apticore.github}
                   target="_blank"
@@ -490,7 +488,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
                   href={projects.apticore.demo}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-5 py-2.5 rounded-full bg-white/[0.05] border border-white/15 text-zinc-200 font-mono text-xs hover:bg-white/10 transition-all flex items-center gap-2"
+                  className="px-5 py-2.5 rounded-full bg-white/5 border border-white/15 text-zinc-200 font-mono text-xs hover:bg-white/10 transition-all flex items-center gap-2"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
                   <span>Live Platform Preview</span>
@@ -526,7 +524,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
             {projects.uccops.extraProjects.map((p, i) => (
               <div
                 key={i}
-                className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/[0.08] backdrop-blur-xl hover:border-amber-400/40 hover:bg-white/[0.04] transition-all duration-300 group flex flex-col justify-between"
+                className="p-6 sm:p-8 rounded-2xl bg-white/2 border border-white/8 backdrop-blur-xl hover:border-amber-400/40 hover:bg-white/4 transition-all duration-300 group flex flex-col justify-between"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
@@ -537,7 +535,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
                       href={p.link}
                       target="_blank"
                       rel="noreferrer"
-                      className="p-1.5 rounded-lg bg-white/[0.05] text-zinc-400 group-hover:text-amber-300 group-hover:bg-amber-400/10 transition-colors"
+                      className="p-1.5 rounded-lg bg-white/5 text-zinc-400 group-hover:text-amber-300 group-hover:bg-amber-400/10 transition-colors"
                     >
                       <ArrowUpRight className="w-4 h-4" />
                     </a>
@@ -550,11 +548,11 @@ export function Sections({ onScrollTo }: SectionsProps) {
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-2 pt-6 mt-4 border-t border-white/[0.06]">
+                <div className="flex flex-wrap gap-2 pt-6 mt-4 border-t border-white/6">
                   {p.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-zinc-300"
+                      className="px-2 py-0.5 rounded text-[11px] font-mono bg-white/4 text-zinc-300"
                     >
                       {t}
                     </span>
@@ -595,8 +593,8 @@ export function Sections({ onScrollTo }: SectionsProps) {
                   key={i}
                   className={`p-6 sm:p-8 rounded-2xl backdrop-blur-xl border transition-all duration-300 ${
                     isCurrent
-                      ? "bg-gradient-to-r from-emerald-950/40 via-[#0b0e14]/90 to-[#0b0e14]/90 border-emerald-500/40 shadow-[0_0_30px_rgba(16,185,129,0.1)]"
-                      : "bg-white/[0.02] border-white/[0.08] hover:border-white/20"
+                      ? "bg-linear-to-r from-emerald-950/40 via-[#0b0e14]/90 to-[#0b0e14]/90 border-emerald-500/40 shadow-[0_0_30px_rgba(16,185,129,0.1)]"
+                      : "bg-white/2 border-white/8 hover:border-white/20"
                   }`}
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
@@ -606,7 +604,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
                           <Briefcase className="w-4 h-4" />
                         </div>
                       ) : (
-                        <div className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/10 flex items-center justify-center text-zinc-400">
+                        <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400">
                           {exp.role.includes("Graduation") ? (
                             <GraduationCap className="w-4 h-4" />
                           ) : (
@@ -654,7 +652,7 @@ export function Sections({ onScrollTo }: SectionsProps) {
         id="contact"
         className="min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-24 py-24 max-w-7xl mx-auto"
       >
-        <div className="p-8 sm:p-14 rounded-3xl bg-gradient-to-b from-white/[0.04] to-black/80 border border-white/[0.1] backdrop-blur-2xl space-y-8">
+        <div className="p-8 sm:p-14 rounded-3xl bg-linear-to-b from-white/4 to-black/80 border border-white/10 backdrop-blur-2xl space-y-8">
           <div className="space-y-3">
             <div className="text-xs font-mono tracking-widest text-amber-400 uppercase">
               07 // CONTACT & COLLABORATION
@@ -680,14 +678,14 @@ export function Sections({ onScrollTo }: SectionsProps) {
 
             <button
               onClick={() => setTerminalOpen(true)}
-              className="px-6 py-4 rounded-full bg-white/[0.05] border border-white/15 text-zinc-200 font-mono text-xs hover:border-amber-400/50 hover:bg-amber-500/10 hover:text-amber-300 transition-all flex items-center gap-2"
+              className="px-6 py-4 rounded-full bg-white/5 border border-white/15 text-zinc-200 font-mono text-xs hover:border-amber-400/50 hover:bg-amber-500/10 hover:text-amber-300 transition-all flex items-center gap-2"
             >
               <Terminal className="w-4 h-4 text-amber-400" />
               <span>Type &apos;hire&apos; in Terminal</span>
             </button>
           </div>
 
-          <div className="flex flex-wrap items-center gap-6 pt-8 border-t border-white/[0.08] text-xs font-mono text-zinc-400">
+          <div className="flex flex-wrap items-center gap-6 pt-8 border-t border-white/8 text-xs font-mono text-zinc-400">
             <a
               href={contact.github}
               target="_blank"
@@ -726,6 +724,4 @@ export function Sections({ onScrollTo }: SectionsProps) {
   );
 }
 
-export const PalakSections = Sections;
-export const Section = Sections;
 export default Sections;

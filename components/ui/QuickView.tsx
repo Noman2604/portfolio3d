@@ -255,7 +255,7 @@ export function QuickView() {
         </section>
 
         {/* Contact Section */}
-        <section className="rounded-2xl border border-[#232a3a] bg-gradient-to-br from-[#12161f] to-[#0e1219] p-8 text-center space-y-6">
+        <section className="rounded-2xl border border-[#232a3a] bg-linear-to-br from-[#12161f] to-[#0e1219] p-8 text-center space-y-6">
           <h2 className="text-3xl font-bold text-[#ffffff]">Open to internships & full-stack roles.</h2>
           <p className="mx-auto max-w-md text-sm text-[#9ba3b8]">
             If you&apos;re building something that needs a full-stack developer who ships clean, performant products, let&apos;s talk.

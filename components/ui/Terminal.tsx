@@ -161,7 +161,7 @@ export function Terminal() {
               {about.stats.map((s, i) => (
                 <div
                   key={i}
-                  className="p-2 rounded bg-white/[0.04] border border-white/10"
+                  className="p-2 rounded bg-white/4 border border-white/10"
                 >
                   <div className="text-amber-300 font-bold">{s.value}</div>
                   <div className="text-[10px] text-zinc-400">{s.label}</div>
@@ -199,7 +199,7 @@ export function Terminal() {
               {projects.uccops.extraProjects.map((p, i) => (
                 <div
                   key={i}
-                  className="p-2 rounded bg-white/[0.03] border border-white/10"
+                  className="p-2 rounded bg-white/3 border border-white/10"
                 >
                   <div className="text-zinc-200 font-bold">{p.name}</div>
                   <div className="text-zinc-400 text-[11px]">{p.desc}</div>
@@ -226,7 +226,7 @@ export function Terminal() {
               {skills.categories.map((c, i) => (
                 <div
                   key={i}
-                  className="p-2 rounded bg-white/[0.03] border border-white/10"
+                  className="p-2 rounded bg-white/3 border border-white/10"
                 >
                   <div className="text-amber-300 font-semibold text-[11px]">
                     {c.label}
@@ -366,9 +366,9 @@ export function Terminal() {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="w-full max-w-2xl bg-[#090b10] border border-amber-500/30 rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.8),0_0_20px_rgba(245,158,11,0.15)] flex flex-col h-[520px] max-h-[85vh] overflow-hidden">
+      <div className="w-full max-w-2xl bg-[#090b10] border border-amber-500/30 rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.8),0_0_20px_rgba(245,158,11,0.15)] flex flex-col h-130 max-h-[85vh] overflow-hidden">
         {/* Terminal Header Bar */}
-        <div className="flex items-center justify-between px-4 py-3 bg-[#0d1017] border-b border-white/[0.08] select-none">
+        <div className="flex items-center justify-between px-4 py-3 bg-[#0d1017] border-b border-white/8 select-none">
           <div className="flex items-center gap-2">
             <div
               className="w-3 h-3 rounded-full bg-rose-500/80 cursor-pointer hover:opacity-100"
@@ -413,7 +413,7 @@ export function Terminal() {
         </div>
 
         {/* Quick Command Chips */}
-        <div className="px-4 py-2 bg-[#0c0f16] border-t border-white/[0.06] flex items-center gap-2 overflow-x-auto text-[11px] font-mono select-none">
+        <div className="px-4 py-2 bg-[#0c0f16] border-t border-white/6 flex items-center gap-2 overflow-x-auto text-[11px] font-mono select-none">
           <span className="text-zinc-500 text-[10px] uppercase font-bold shrink-0">
             Suggestions:
           </span>
@@ -429,7 +429,7 @@ export function Terminal() {
             <button
               key={chip.cmd}
               onClick={() => runCommand(chip.cmd)}
-              className="px-2 py-0.5 rounded bg-white/[0.05] border border-white/10 text-zinc-300 hover:text-amber-300 hover:border-amber-400/40 hover:bg-amber-500/10 transition-colors shrink-0"
+              className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-zinc-300 hover:text-amber-300 hover:border-amber-400/40 hover:bg-amber-500/10 transition-colors shrink-0"
             >
               {chip.label}
             </button>
@@ -437,7 +437,7 @@ export function Terminal() {
         </div>
 
         {/* Input Prompt */}
-        <div className="px-4 py-3 bg-[#080a0f] border-t border-white/[0.08] flex items-center gap-2">
+        <div className="px-4 py-3 bg-[#080a0f] border-t border-white/8 flex items-center gap-2">
           <span className="text-emerald-400 font-mono text-xs font-bold shrink-0">
             noman@dev:~$
           </span>
@@ -462,5 +462,4 @@ export function Terminal() {
   );
 }
 
-export const PalakTerminal = Terminal;
 export default Terminal;
