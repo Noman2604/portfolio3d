@@ -39,7 +39,7 @@ export const about = {
       company: "Autowhat.ai",
       period: "August 2026 – Present",
       description:
-        "Developing scalable backend microservices, robust REST APIs, and full-stack integrations utilizing Next.js, Node.js, and TypeScript architecture.",
+        "Developing a comprehensive logistics management platform for real-time shipment and trip tracking, trip lifecycle monitoring, and automated documentation using Next.js, Node.js, and TypeScript.",
     },
     {
       role: "Full-Stack Developer",
@@ -128,7 +128,7 @@ export const skills = {
     },
     {
       label: "Database & Architecture",
-      items: ["MongoDB", "Mongoose", "Schema Design", "Analytics Pipelines", "Aggregation"],
+      items: ["MongoDB"],
     },
     {
       label: "Tools & Integrations",

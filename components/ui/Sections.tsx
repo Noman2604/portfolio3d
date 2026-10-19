@@ -76,8 +76,8 @@ export function Sections({ onScrollTo }: SectionsProps) {
               </span>
             </div>
             <p className="text-xs text-zinc-400 mt-1">
-              August 2026 – Present · Engineering backend microservices, REST
-              APIs, and TypeScript integrations.
+              August 2026 – Present · Building a logistics platform for
+              real-time shipment tracking, trip management, and automated documentation.
             </p>
           </div>
 
@@ -159,11 +159,10 @@ export function Sections({ onScrollTo }: SectionsProps) {
                 </div>
 
                 <p className="text-zinc-300 text-sm leading-relaxed mb-6">
-                  Developing scalable backend microservices, robust REST APIs,
-                  and full-stack integrations utilizing Next.js, Node.js, and
-                  TypeScript architecture. Focused on high-availability request
-                  handlers, maintainable patterns, and performant data
-                  processing.
+                  Developing a comprehensive logistics management platform
+                  focused on real-time shipment and trip tracking, trip lifecycle
+                  monitoring, automated documentation, and full-stack REST API integrations
+                  using Next.js, Node.js, and TypeScript.
                 </p>
 
                 <div className="space-y-2 pt-4 border-t border-white/8">
@@ -365,11 +364,6 @@ export function Sections({ onScrollTo }: SectionsProps) {
               <div className="flex flex-wrap gap-2">
                 {[
                   "MongoDB",
-                  "Mongoose",
-                  "Schema Design",
-                  "Aggregation Pipelines",
-                  "Indexing",
-                  "Data Integrity",
                 ].map((skill) => (
                   <span
                     key={skill}

@@ -133,13 +133,13 @@ export function Terminal() {
             </div>
             <div className="text-zinc-300 leading-relaxed border-t border-emerald-500/20 pt-2">
               <span className="text-zinc-400">Description: </span>
-              Developing scalable backend microservices, robust REST APIs, and
-              full-stack integrations utilizing Next.js, Node.js, and TypeScript
-              architecture.
+              Developing a logistics platform focused on real-time shipment and
+              trip tracking, automated documentation, and full-stack integrations
+              utilizing Next.js, Node.js, and TypeScript architecture.
             </div>
             <div className="text-[11px] text-emerald-400/90 font-mono">
-              Key Focus: Microservices Architecture · REST APIs ·
-              High-Throughput Handlers · Next.js
+              Key Focus: Logistics Platform · Shipment & Trip Tracking ·
+              Automated Documentation · Next.js & TypeScript
             </div>
           </div>
         );

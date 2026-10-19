@@ -34,37 +34,23 @@ The 3D layout doesn't need to change when you edit copy — it just reads from t
 
 ```
 app/
-  layout.tsx        fonts (Space Grotesk + IBM Plex Mono) + metadata
-  page.tsx           loads the 3D experience client-side only
-  globals.css        color theme
+  layout.tsx        fonts + metadata
+  page.tsx          client-side dynamic loader for Experience
+  globals.css       styles & color theme
 components/
-  Experience.tsx      canvas + all overlays, the entry point
+  Experience.tsx    canvas, scroll listener + all overlays (main entry point)
   scene/
-    Room.tsx           floor/walls/lighting
-    Stations.tsx       the physical objects (desk, pedestals, terminal stack, lantern)
-    Player.tsx         first-person movement + look + proximity detection
+    Scene.tsx       3D WebGL background scene (Three.js / React Three Fiber)
   ui/
-    Overlay.tsx        start / paused screen
-    HUD.tsx            crosshair + interact prompt
-    InfoPanel.tsx       the modal shown when you press E
-  InteractionListener.tsx   listens for the E key
-data/content.ts        all copy — edit this file to update the portfolio
+    Navbar.tsx      floating top navigation
+    DotNavigation.tsx right-hand rail dots
+    Sections.tsx    scrollable native content sections
+    Terminal.tsx    interactive cyberpunk terminal CLI modal
+    Icons.tsx       SVG icon primitives
+data/content.ts     portfolio data and project details
 lib/
-  store.ts             shared state (zustand) between the canvas and the UI
-  constants.ts          room size, spawn point, movement speed
-hooks/useKeyboardControls.ts   WASD key tracking
+  scrollStore.ts    scroll progress & active section store (zustand)
 ```
-
-## Customizing further
-
-- **Room size / spawn point / speed** — `lib/constants.ts`
-- **Colors** — the amber (`#e8a33d`) / teal (`#4fd1c5`) / navy (`#0b0f1a`) palette is used
-  throughout `components/scene/*` and `components/ui/*`; search-and-replace to re-theme.
-- **Add a station** — add an entry to `stations` in `data/content.ts`, add a matching
-  case in `components/ui/InfoPanel.tsx`, and add a piece of set-dressing + `<Label>` +
-  `<GlowRing>` in `components/scene/Stations.tsx`.
-- **Real 3D models** — swap any `<mesh>` in `Stations.tsx` for a `useGLTF()`-loaded model
-  from `@react-three/drei` if you want more detailed geometry than the current primitives.
 
 ## Deploying
 
