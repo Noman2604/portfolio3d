@@ -1,28 +1,58 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, IBM_Plex_Mono, Newsreader } from "next/font/google";
+import { Space_Grotesk, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+  variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
+const geistMono = Geist_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  display: "swap",
 });
 
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
   subsets: ["latin"],
+  weight: ["400"],
   style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Noman Patel — Full-Stack Software Developer",
-  description: "Full-stack developer building AptiCore, AI assistants, and scalable web apps. Intern @ Autowhat.ai.",
+  metadataBase: new URL("https://nomanpatel.vercel.app"),
+  title: "Noman Patel — Full-Stack Developer",
+  description:
+    "Full-Stack Developer building reliable web applications with Next.js, TypeScript, and MongoDB.",
+  keywords: [
+    "Noman Patel",
+    "Full-Stack Developer",
+    "Next.js 15",
+    "TypeScript",
+    "MongoDB",
+    "Node.js",
+    "AptiCore",
+    "Software Engineer",
+  ],
+  authors: [{ name: "Noman Patel", url: "https://github.com/Noman2604" }],
+  creator: "Noman Patel",
+  openGraph: {
+    title: "Noman Patel — Full-Stack Developer",
+    description:
+      "Full-stack web software, production applications, and clean software architecture.",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Noman Patel — Full-Stack Developer",
+    description:
+      "Full-stack web software, production applications, and clean software architecture.",
+  },
 };
 
 export default function RootLayout({
@@ -30,12 +60,38 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Noman Patel",
+    jobTitle: "Full-Stack Developer",
+    url: "https://nomanpatel.vercel.app",
+    sameAs: [
+      "https://github.com/Noman2604",
+      "https://linkedin.com/in/noman-patel",
+    ],
+    knowsAbout: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "MongoDB",
+      "Node.js",
+      "Tailwind CSS",
+      "REST APIs",
+      "Full-Stack Web Development",
+    ],
+  };
+
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${plexMono.variable} ${newsreader.variable} antialiased selection:bg-[#f59e0b]/30`}
+      className={`${spaceGrotesk.variable} ${geistMono.variable} ${instrumentSerif.variable} antialiased`}
     >
-      <body className="bg-[#05070c] text-[#f1f5f9] min-h-screen overflow-x-hidden font-sans">
+      <body className="bg-[#0C0D0E] text-[#EFEFF1] min-h-screen overflow-x-hidden font-sans selection:bg-[#262930] selection:text-white">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
       </body>
     </html>

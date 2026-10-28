@@ -1,46 +1,121 @@
 @import "tailwindcss";
 
-:root {
-  --background: #05070c;
-  --foreground: #f1f5f9;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-space-grotesk);
-  --font-mono: var(--font-plex-mono);
-  --font-serif: var(--font-newsreader);
+  --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-mono), "JetBrains Mono", Menlo, Consolas, monospace;
+  --font-serif: var(--font-serif), "Newsreader", Georgia, serif;
 }
 
-html {
-  scroll-behavior: smooth;
-  background: var(--background);
-  color: var(--foreground);
+@layer base {
+  :root {
+    --bg: #0c0d0e;
+    --surface: #131518;
+    --surface-elevated: #1a1c20;
+    --border: #23262d;
+    --border-subtle: #1c1e23;
+    --border-hover: #383c46;
+    --fg: #efeff1;
+    --muted: #8b8f9a;
+    --muted-dark: #585c67;
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: auto;
+    background-color: var(--bg);
+    color: var(--fg);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    background-color: #262930;
+    color: #ffffff;
+  }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  min-height: 100vh;
+/* Hairline border utility */
+.border-hairline {
+  border-width: 1px;
+  border-color: var(--border);
 }
 
-canvas {
-  outline: none;
-  pointer-events: none;
+.border-hairline-b {
+  border-bottom-width: 1px;
+  border-bottom-color: var(--border);
 }
 
-/* Custom subtle scrollbar */
+.border-hairline-t {
+  border-top-width: 1px;
+  border-top-color: var(--border);
+}
+
+/* Restrained architectural surface */
+.card-surface {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.card-surface:hover {
+  border-color: var(--border-hover);
+}
+
+/* Clean text link with underline animation on hover */
+.link-hover {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+
+.link-hover:hover {
+  text-decoration-color: var(--fg);
+}
+
+/* Custom Minimal Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #05070c;
+  background: var(--bg);
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 9999px;
+  background: var(--border);
+  border-radius: 2px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: var(--border-hover);
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
