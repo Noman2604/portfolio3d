@@ -12,12 +12,14 @@ export function Footer() {
     <footer className="relative w-full border-t border-[#23262D] bg-[#0C0D0E] pt-12 pb-6 z-10 overflow-hidden">
       <div className="max-w-8xl mx-auto px-6 sm:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-mono text-[#8B8F9A]">
-          {/* Brand & Rights */}
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+          {/* Brand & Role */}
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center sm:text-left">
             <span className="font-sans font-semibold text-[#EFEFF1]">
-             Noman.
+              Noman.
             </span>
-            <span>© {new Date().getFullYear()}. Built with Next.js & TypeScript.</span>
+            <p>
+              © {new Date().getFullYear()} Noman Patel. All rights reserved.
+            </p>
           </div>
 
           {/* Links & Back to top */}
@@ -61,7 +63,6 @@ export function Footer() {
           >
             {content.shortName}.
           </span>
-              
         </div>
       </div>
     </footer>

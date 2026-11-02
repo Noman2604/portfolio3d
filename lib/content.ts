@@ -136,13 +136,13 @@ export const content: SiteContent = {
       name: "Logistics & Gate Management Platform",
       desc: "Full-stack supply chain and gate operations system for creating shipments, generating gate passes, verifying shipping documentation, and tracking dock movements.",
       stack: ["Next.js", "TypeScript", "Node.js", "MongoDB", "Tailwind CSS"],
-      href: "https://github.com/Noman2604/Logistics-Gate-Management",
+      href: "https://github.com/Noman2604/",
     },
     {
       name: "Course Selling Platform",
       desc: "E-learning platform allowing instructors to manage curricula and students to enroll, track progress, and complete payments via Stripe.",
       stack: ["Next.js", "TypeScript", "MongoDB", "Stripe"],
-      href: "https://github.com/Noman2604/Course-Selling-Platform",
+      href: "https://github.com/Noman2604/course-selling-EduPlatform",
     },
     {
       name: "Chatbot Nova",
