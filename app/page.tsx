@@ -1,73 +1,18 @@
-"use client";
-
-import dynamic from "next/dynamic";
-import { SmoothScroll } from "@/components/providers/SmoothScroll";
-import { Header } from "@/components/ui/Header";
-import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
-import { Skills } from "@/components/sections/Skills";
-import { Architecture } from "@/components/sections/Architecture";
-import { Featured } from "@/components/sections/Featured";
-import { Projects } from "@/components/sections/Projects";
-import { Experience } from "@/components/sections/Experience";
-import { Resume } from "@/components/sections/Resume";
-import { Contact } from "@/components/sections/Contact";
-import { Footer } from "@/components/ui/Footer";
-
-const CanvasContainer = dynamic(
-  () =>
-    import("@/components/canvas/CanvasContainer").then(
-      (mod) => mod.CanvasContainer
-    ),
-  { ssr: false }
-);
-
 export default function Home() {
   return (
-    <SmoothScroll>
-      <div className="relative min-h-screen w-full bg-[#0C0D0E] text-[#EFEFF1] selection:bg-[#262930] selection:text-white">
-        {/* Clean Fixed Top Header */}
-        <Header />
-
-        {/* Quiet Background 3D Architectural Form */}
-        <CanvasContainer />
-
-        {/* Primary Content Container */}
-        <main
-          suppressHydrationWarning
-          className="relative z-10 w-full max-w-8xl mx-auto px-6 sm:px-8 pt-20 pb-24"
-        >
-          {/* Section: Hero */}
-          <Hero />
-
-          {/* Section: About */}
-          <About />
-
-          {/* Section: Skills */}
-          <Skills />
-
-          {/* Section: System Architecture & Data Flow */}
-          <Architecture />
-
-          {/* Section: Featured Project (AptiCore) */}
-          <Featured />
-
-          {/* Section: Other Projects */}
-          <Projects />
-
-          {/* Section: Experience & Education */}
-          <Experience />
-
-          {/* Section: Resume & Credentials */}
-          <Resume />
-
-          {/* Section: Contact Form */}
-          <Contact />
-        </main>
-
-        {/* Structured Editorial Footer */}
-        <Footer />
+    <main className="min-h-screen w-full bg-[#0C0D0E] text-[#EFEFF1] flex flex-col items-center justify-center p-6 font-mono text-sm">
+      <div className="max-w-md w-full rounded-lg border border-[#23262D] bg-[#111317] p-8 text-center space-y-4 shadow-xl">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181B22] border border-[#282C37] text-xs text-[#8B8F9A]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#EFEFF1] animate-pulse" />
+          <span>PROJECT INITIALIZED</span>
+        </div>
+        <h1 className="text-2xl font-bold tracking-tight text-white font-sans">
+          Noman Patel
+        </h1>
+        <p className="text-xs text-[#8B8F9A] leading-relaxed">
+          Clean slate ready. Next.js 15, Tailwind CSS, TypeScript, and Three.js environment initialized.
+        </p>
       </div>
-    </SmoothScroll>
+    </main>
   );
 }
